@@ -1,0 +1,54 @@
+{
+  "name": "lfm-status",
+  "displayName": "Last.FM Now Playing",
+  "description": "Shows your currently playing music in the status bar.",
+  "repository": {"url": "https://github.com/darkpixlz/lfm-vscode"},
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [],
+    "configuration": {
+      "title": "LastFM",
+      "type": "object",
+      "properties": {
+        "lastfm.username": {
+          "type": "string",
+          "default": null,
+          "description": "The name of the username to watch for."
+        },
+        "lastfm.api": {
+          "type": "string",
+          "default": null,
+          "description": "The API key for your Last.fm account."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^0.25.0"
+  }
+}
